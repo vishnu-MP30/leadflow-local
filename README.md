@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![LeadFlow Logo](Leadflow_web/public/logo.png)
+![LeadFlow Logo](/public/logo.png)
 
 **Transform raw prospect lists into booked sales calls with zero manual intervention.**  
 Engineered with enterprise-grade deliverability, autonomous research dossiers, and bespoke multi-channel sequences.
@@ -63,44 +63,47 @@ LeadFlow closes that gap by deploying autonomous agents that:
 ## 📂 Project Structure
 
 ```text
-Leadflow/
-├── Leadflow_web/                 # Next.js Application Root
-│   ├── public/                   # Static public assets
-│   │   ├── logo.png              # Primary LeadFlow brand logo
-│   │   ├── leadflow-workflow.png # Architectural flow visual
-│   │   └── ...                   # SVG icons and asset graphics
-│   ├── src/
-│   │   ├── app/                  # Next.js App Router
-│   │   │   ├── layout.tsx        # Global RootLayout, font injection, and metadata
-│   │   │   ├── page.tsx          # Main Landing Page assemble
-│   │   │   ├── globals.css       # Global Tailwind v4 design tokens and CSS rules
-│   │   │   └── contact/          # Early access request route (/contact)
-│   │   │       └── page.tsx      # Contact & qualification form
-│   │   ├── components/           # UI & Feature Components
-│   │   │   ├── Navbar.tsx        # Auto-hiding / popping purple glassmorphic navigation
-│   │   │   ├── Hero.tsx          # 3D interactive tunnel hero & flight controls
-│   │   │   ├── LogoWall.tsx      # Social proof marquee & illuminated facets
-│   │   │   ├── Features.tsx      # Comparative benchmark metrics & feature cards
-│   │   │   ├── SecurityCompliance.tsx# Enterprise SOC 2 & compliance 3D block
-│   │   │   ├── FeatureStory/     # 4-Phase Pipeline Engine (Desktop & Mobile)
-│   │   │   ├── HowItWorks.tsx    # Autonomous 4-node architecture
-│   │   │   ├── WorkflowFaq.tsx   # 3-step pavilion transition & accordion FAQs
-│   │   │   ├── Stats.tsx         # Clean white Apple-style animated metric cards
-│   │   │   ├── Testimonials.tsx  # Social proof cards with verified conversion tags
-│   │   │   ├── Pricing.tsx       # Transparent Starter, Growth, Enterprise tiers
-│   │   │   ├── CTA.tsx           # Dynamic cycling typewriter CTA banner
-│   │   │   ├── Footer.tsx        # Editorial footer with interactive wordmark paint
-│   │   │   ├── InteractiveTextPaint.tsx # Canvas ink-bleed cursor reveal wordmark
-│   │   │   ├── hero3d/           # Procedural 3D tunnel flight engine
-│   │   │   └── landing3d/        # Stepped concentric 3D core & shaders
-│   │   └── lib/                  # Utilities & helpers
-│   ├── netlify.toml              # Netlify deployment configuration
-│   ├── next.config.ts            # Next.js compiler & import optimizations
-│   ├── package.json              # Dependencies and execution scripts
-│   ├── postcss.config.mjs        # PostCSS configuration
-│   └── tsconfig.json             # TypeScript compiler configuration
-├── .gitignore                    # Root repository ignore rules
-└── README.md                     # Project documentation
+Leadflow_web/
+├── public/                       # Static public assets
+│   ├── logo.png                  # Primary LeadFlow brand logo
+│   ├── leadflow-workflow.png     # Architectural flow visual
+│   └── ...                       # SVG icons and asset graphics
+├── src/
+│   ├── app/                      # Next.js App Router
+│   │   ├── layout.tsx            # Global RootLayout, font injection, and metadata
+│   │   ├── page.tsx              # Main Landing Page assemble
+│   │   ├── globals.css           # Global Tailwind v4 design tokens and CSS rules
+│   │   └── contact/              # Early access request route (/contact)
+│   │       └── page.tsx          # Contact & qualification form
+│   ├── components/               # UI & Feature Components
+│   │   ├── Navbar.tsx            # Auto-hiding / popping purple glassmorphic navigation
+│   │   ├── Hero.tsx              # 3D interactive tunnel hero & flight controls
+│   │   ├── LogoWall.tsx          # Social proof marquee & illuminated facets
+│   │   ├── Features.tsx          # Comparative benchmark metrics & feature cards
+│   │   ├── SecurityCompliance.tsx# Enterprise SOC 2 & compliance 3D block
+│   │   ├── FeatureStory/         # 4-Phase Pipeline Engine (Desktop & Mobile)
+│   │   │   ├── FeatureStory.tsx  # Scrollytelling container & tab switcher
+│   │   │   ├── steps-config.ts   # Blueprint steps configuration & text data
+│   │   │   └── visuals/          # Step-specific SVG dashboard visuals
+│   │   ├── HowItWorks.tsx        # Autonomous 4-node architecture
+│   │   ├── WorkflowFaq.tsx       # 3-step pavilion transition & accordion FAQs
+│   │   ├── Stats.tsx             # Clean white Apple-style animated metric cards
+│   │   ├── Testimonials.tsx      # Social proof cards with verified conversion tags
+│   │   ├── Pricing.tsx           # Transparent Starter, Growth, Enterprise tiers
+│   │   ├── CTA.tsx               # Dynamic cycling typewriter CTA banner
+│   │   ├── Footer.tsx            # Editorial footer with interactive wordmark paint
+│   │   ├── InteractiveTextPaint.tsx # Canvas ink-bleed cursor reveal wordmark
+│   │   ├── hero3d/               # Procedural 3D tunnel flight engine
+│   │   └── landing3d/            # Stepped concentric 3D core & shaders
+│   └── lib/                      # Utilities & helpers
+│       ├── utils.ts              # Tailwind clsx + twMerge utility
+│       └── lenis.ts              # Lenis smooth scroll provider setup
+├── .gitignore                    # Git ignore definitions
+├── netlify.toml                  # Netlify deployment configuration
+├── next.config.ts                # Next.js compiler & import optimizations
+├── package.json                  # Dependencies and execution scripts
+├── postcss.config.mjs            # PostCSS configuration
+└── tsconfig.json                 # TypeScript compiler configuration
 ```
 
 ---
@@ -142,7 +145,7 @@ Ensure you have installed:
 
 ## 🔐 Environment Variables
 
-Create a `.env.local` file in `Leadflow_web/` if you wish to configure optional analytics or external hooks:
+Create a `.env.local` file in the root of the project directory if you wish to configure optional analytics or external hooks:
 
 ```bash
 # Example .env.local
@@ -166,8 +169,6 @@ NEXT_PUBLIC_SITE_NAME=LeadFlow AI
 To test the production compilation bundle locally:
 
 ```bash
-cd Leadflow_web
-
 # Build the production bundle
 npm run build
 
