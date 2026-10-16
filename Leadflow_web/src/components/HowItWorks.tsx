@@ -66,7 +66,7 @@ export function HowItWorks() {
             >
               <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_#ffffff]" />
               <span
-                style={{ fontFamily: "var(--font-geist-mono), monospace" }}
+                style={{ fontFamily: "var(--font-mono), 'Geist Mono', monospace" }}
                 className="text-[11px] sm:text-xs text-white/70 uppercase tracking-[0.2em] font-medium"
               >
                 AUTONOMOUS ARCHITECTURE
@@ -79,7 +79,7 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.08, ease: "easeOut" }}
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="font-light sm:font-[350] text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.65rem] leading-[1.08] tracking-[-0.035em] text-white"
             >
               <span className="block text-white">
@@ -96,7 +96,7 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.6, delay: 0.16, ease: "easeOut" }}
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="mt-6 font-normal text-sm sm:text-base lg:text-[1.05rem] text-slate-300/80 leading-relaxed max-w-md"
             >
               From raw prospect list to booked executive conversation—an autonomous sales workflow engineered for high-intent pipeline generation.
@@ -112,7 +112,7 @@ export function HowItWorks() {
             >
               <Link
                 href="/contact"
-                style={{ fontFamily: "var(--font-geist-mono), monospace" }}
+                style={{ fontFamily: "var(--font-mono), 'Geist Mono', monospace" }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#FF3388] hover:bg-[#FF1A75] text-black font-mono font-semibold text-xs tracking-[0.14em] uppercase transition-all shadow-[0_0_20px_rgba(255,51,136,0.35)] hover:shadow-[0_0_30px_rgba(255,51,136,0.6)] cursor-pointer whitespace-nowrap"
               >
                 <span>GET EARLY ACCESS</span>
@@ -121,7 +121,7 @@ export function HowItWorks() {
 
               <a
                 href="#pricing"
-                style={{ fontFamily: "var(--font-geist-mono), monospace" }}
+                style={{ fontFamily: "var(--font-mono), 'Geist Mono', monospace" }}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#181124]/90 hover:bg-white/10 border border-white/15 text-white/90 font-mono font-semibold text-xs tracking-[0.14em] uppercase transition-all shadow-sm cursor-pointer whitespace-nowrap"
               >
                 <span>VIEW PRICING</span>
@@ -154,14 +154,14 @@ export function HowItWorks() {
                         className="text-white/90 shrink-0 group-hover:text-[#FF3388] transition-colors"
                       />
                       <h3
-                        style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+                        style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
                         className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug"
                       >
                         {item.title}
                       </h3>
                     </div>
                     <p
-                      style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+                      style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
                       className="mt-2 text-xs sm:text-[13.5px] lg:text-[14px] text-slate-300/80 leading-relaxed max-w-lg font-normal pl-0 sm:pl-[34px]"
                     >
                       {item.desc}

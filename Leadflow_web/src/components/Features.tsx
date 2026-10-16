@@ -27,74 +27,137 @@ const steps = [
     description:
       "Before sending a single word, LeadFlow cross-references 12+ live data sources—including recent keynote talks, job boards, podcasts, and GitHub repos—to synthesize why this prospect needs your product now.",
     graphic: (
-      <div className="rounded-2xl sm:rounded-3xl bg-[#0B0A0F] border border-[#2D123D] p-5 sm:p-7 text-white shadow-2xl relative overflow-hidden">
-        {/* Ambient Top Glow */}
-        <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-bl from-[#D93D94]/20 via-[#1F102E]/30 to-transparent pointer-events-none" />
-
+      <div className="rounded-2xl sm:rounded-3xl bg-[#EEF2F6] border border-slate-200/90 p-5 sm:p-7 text-[#0B1B3D] shadow-[0_15px_45px_rgba(0,0,0,0.06)] relative overflow-hidden">
         {/* Card Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/10 relative z-10">
-          <div className="flex items-center gap-2.5">
+        <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-5 relative z-10">
+          <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981] animate-pulse" />
-            <span className="font-mono font-medium text-xs text-white/90 tracking-wider">
-              DOSSIER #4928
+            <span className="font-mono font-semibold text-xs text-[#0B1B3D]/80 tracking-wider uppercase">
+              DOSSIER #4928 • ENRICHMENT BENCHMARK
             </span>
           </div>
-          <span className="font-mono font-semibold text-[11px] tracking-wider uppercase text-[#D93D94] bg-[#D93D94]/15 border border-[#D93D94]/30 px-3 py-1 rounded-full">
+          <span className="font-mono font-semibold text-[11px] tracking-wider uppercase text-[#D93D94] bg-[#D93D94]/10 border border-[#D93D94]/30 px-3 py-1 rounded-full">
             HIGH RELEVANCY (98%)
           </span>
         </div>
 
-        {/* Profile Snapshot */}
-        <div className="mt-5 p-4 rounded-xl bg-white/5 border border-white/10 flex items-center justify-between relative z-10">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#1F102E] to-[#D93D94] text-white flex items-center justify-center font-bold text-sm">
-              SC
+        {/* ── COMPARATIVE BENCHMARK METRICS BARS (MATCHING REFERENCE IMAGE 1) ── */}
+        <div className="space-y-4 sm:space-y-5 relative z-10">
+          {/* Row 1: LeadFlow with Snapshots / Live Synthesis */}
+          <div>
+            <div className="font-mono text-[11px] sm:text-xs text-[#0B1B3D] font-semibold tracking-wider uppercase mb-1.5">
+              LEADFLOW (WITH LIVE AI SYNTHESIS)
             </div>
-            <div>
-              <div className="font-sans font-bold text-sm text-white">Sarah Chen</div>
-              <div className="font-mono text-xs text-white/50">VP of Infrastructure @ CloudScale</div>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <div className="relative flex-1 h-2 sm:h-2.5 bg-white rounded-full overflow-hidden shadow-inner">
+                <div className="absolute left-0 top-0 bottom-0 bg-[#FF3388] rounded-full w-[9%]" />
+              </div>
+              <span className="font-sans font-bold text-2xl sm:text-3xl text-[#0B1B3D] tracking-tight min-w-[70px] text-right">
+                1.2s
+              </span>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 font-mono text-xs text-[#10B981] bg-[#10B981]/10 px-2.5 py-1 rounded-md border border-[#10B981]/30">
-            <Check size={14} weight="bold" />
-            <span>VERIFIED</span>
+
+          {/* Row 2: LeadFlow Deep Multi-Source Enrichment */}
+          <div>
+            <div className="font-mono text-[11px] sm:text-xs text-[#0B1B3D] font-semibold tracking-wider uppercase mb-1.5">
+              LEADFLOW (MULTI-SOURCE DEEP DOSSIER)
+            </div>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <div className="relative flex-1 h-2 sm:h-2.5 bg-white rounded-full overflow-hidden shadow-inner">
+                <div className="absolute left-0 top-0 bottom-0 bg-[#FF3388] rounded-full w-[26%]" />
+              </div>
+              <span className="font-sans font-bold text-2xl sm:text-3xl text-[#0B1B3D] tracking-tight min-w-[70px] text-right">
+                3.8s
+              </span>
+            </div>
+          </div>
+
+          {/* Row 3: Traditional Enrichment APIs */}
+          <div>
+            <div className="font-mono text-[11px] sm:text-xs text-[#5C6B8A] font-semibold tracking-wider uppercase mb-1.5">
+              TRADITIONAL ENRICHMENT APIS (ZOOMINFO / APOLLO)
+            </div>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <div className="relative flex-1 h-2 sm:h-2.5 bg-white rounded-full overflow-hidden shadow-inner">
+                <div className="absolute left-0 top-0 bottom-0 bg-[#5C6B8A] rounded-full w-[65%]" />
+              </div>
+              <span className="font-sans font-bold text-2xl sm:text-3xl text-[#0B1B3D] tracking-tight min-w-[70px] text-right">
+                71s
+              </span>
+            </div>
+          </div>
+
+          {/* Row 4: Manual SDR Research */}
+          <div>
+            <div className="font-mono text-[11px] sm:text-xs text-[#5C6B8A] font-semibold tracking-wider uppercase mb-1.5">
+              MANUAL SDR PROSPECT RESEARCH &amp; NOTES
+            </div>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <div className="relative flex-1 h-2 sm:h-2.5 bg-white rounded-full overflow-hidden shadow-inner">
+                <div className="absolute left-0 top-0 bottom-0 bg-[#5C6B8A] rounded-full w-[90%]" />
+              </div>
+              <span className="font-sans font-bold text-2xl sm:text-3xl text-[#0B1B3D] tracking-tight min-w-[70px] text-right">
+                940s
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Signals Found */}
-        <div className="mt-4 p-4 rounded-xl bg-[#120A1C] border border-[#D93D94]/20 relative z-10">
-          <div className="font-mono text-[11px] uppercase tracking-wider text-[#D93D94] font-semibold mb-2.5">
-            12+ LIVE SIGNALS SYNTHESIZED
+        {/* ── VERIFIED TARGET PROSPECT & SYNTHESIZED SIGNALS ── */}
+        <div className="mt-6 pt-5 border-t border-slate-200/80 relative z-10 space-y-3">
+          {/* Profile Snapshot */}
+          <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 flex items-center justify-between shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#1F102E] to-[#FF3388] text-white flex items-center justify-center font-bold text-xs">
+                SC
+              </div>
+              <div>
+                <div className="font-sans font-bold text-xs text-[#0B1B3D]">Sarah Chen</div>
+                <div className="font-mono text-[11px] text-slate-500">VP of Infrastructure @ CloudScale</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 font-mono text-[11px] text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/25 font-semibold">
+              <Check size={12} weight="bold" />
+              <span>VERIFIED</span>
+            </div>
           </div>
-          <ul className="space-y-2 font-sans text-xs text-white/80">
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D93D94]" />
-              <span>Hiring 4 Platform Engineers on LinkedIn (Engineering Scale)</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D93D94]" />
-              <span>Migrated core cluster to Kubernetes &amp; AWS 3 weeks ago</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D93D94]" />
-              <span>Keynote speaker at KubeCon on multi-region reliability</span>
-            </li>
-          </ul>
-        </div>
 
-        {/* Latency & Confidence Bar */}
-        <div className="mt-5 pt-4 border-t border-white/10 grid grid-cols-3 gap-2 text-center relative z-10">
-          <div>
-            <div className="font-mono text-[10px] uppercase text-white/40">Enrich Time</div>
-            <div className="font-sans font-bold text-sm text-white mt-0.5">1.2s</div>
+          {/* Signals Found */}
+          <div className="p-3 rounded-xl bg-white border border-slate-200/90 shadow-sm text-xs">
+            <div className="font-mono text-[10px] uppercase tracking-wider text-[#FF3388] font-bold mb-1.5">
+              12+ LIVE SIGNALS SYNTHESIZED
+            </div>
+            <div className="space-y-1 font-sans text-[11px] text-slate-600">
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3388]" />
+                <span>Hiring 4 Platform Engineers on LinkedIn (Engineering Scale)</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3388]" />
+                <span>Migrated core cluster to Kubernetes &amp; AWS 3 weeks ago</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF3388]" />
+                <span>Keynote speaker at KubeCon on multi-region reliability</span>
+              </div>
+            </div>
           </div>
-          <div>
-            <div className="font-mono text-[10px] uppercase text-white/40">Confidence</div>
-            <div className="font-sans font-bold text-sm text-[#10B981] mt-0.5">99.4%</div>
-          </div>
-          <div>
-            <div className="font-mono text-[10px] uppercase text-white/40">Data Freshness</div>
-            <div className="font-sans font-bold text-sm text-[#D93D94] mt-0.5">&lt; 2h Realtime</div>
+
+          {/* Latency & Confidence Bar */}
+          <div className="grid grid-cols-3 gap-2 text-center font-mono">
+            <div className="bg-white p-2 rounded-lg border border-slate-200/80 shadow-xs">
+              <div className="text-[9px] uppercase text-slate-400">Enrich Time</div>
+              <div className="font-bold text-xs text-[#0B1B3D] mt-0.5">1.2s</div>
+            </div>
+            <div className="bg-white p-2 rounded-lg border border-slate-200/80 shadow-xs">
+              <div className="text-[9px] uppercase text-slate-400">Confidence</div>
+              <div className="font-bold text-xs text-[#10B981] mt-0.5">99.4%</div>
+            </div>
+            <div className="bg-white p-2 rounded-lg border border-slate-200/80 shadow-xs">
+              <div className="text-[9px] uppercase text-slate-400">Freshness</div>
+              <div className="font-bold text-xs text-[#FF3388] mt-0.5">&lt; 2h Realtime</div>
+            </div>
           </div>
         </div>
       </div>
@@ -108,61 +171,183 @@ const steps = [
     description:
       "Replicate your best SDR's deepest research and highest-converting tone at machine scale. Every hook is uniquely calibrated to verified real-time milestones, completely eliminating generic spam templates.",
     graphic: (
-      <div className="rounded-2xl sm:rounded-3xl bg-[#0B0A0F] border border-[#2D123D] p-5 sm:p-7 text-white shadow-2xl relative overflow-hidden">
-        {/* Ambient Top Glow */}
-        <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-bl from-[#D93D94]/25 via-transparent to-transparent pointer-events-none" />
-
+      <div className="rounded-2xl sm:rounded-3xl bg-[#EEF2F6] border border-slate-200/90 p-5 sm:p-7 text-[#0B1B3D] shadow-[0_15px_45px_rgba(0,0,0,0.06)] relative overflow-hidden">
         {/* Header Tabs */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/10 relative z-10">
+        <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-4 relative z-10">
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-1 rounded-md bg-[#1F102E] border border-[#D93D94]/40 font-mono text-[11px] text-[#D93D94] uppercase tracking-wider font-semibold">
+            <span className="px-2.5 py-0.5 rounded-md bg-[#1F102E] font-mono text-[10px] text-[#FF3388] uppercase tracking-wider font-semibold">
               GEMINI 2.5 PRO
             </span>
-            <span className="font-mono text-[11px] text-white/40 uppercase tracking-wider">
+            <span className="font-mono text-[11px] text-slate-500 uppercase tracking-wider">
               VOICE: EXECUTIVE PEER
             </span>
           </div>
-          <span className="font-mono text-xs text-[#10B981] flex items-center gap-1">
+          <span className="font-mono text-xs text-[#10B981] flex items-center gap-1 font-semibold">
             <Lightning size={14} weight="fill" />
             SYNTHESIZED
           </span>
         </div>
 
+        {/* ── MULTI-LINE STEPPED TELEMETRY GRAPH (MATCHING REFERENCE IMAGE 2) ── */}
+        <div className="w-full bg-[#F5F7FA] rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-sm relative z-10">
+          <div className="flex items-center justify-between mb-2">
+            <span className="font-mono text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
+              REPLY &amp; ENGAGEMENT TRAJECTORY (%)
+            </span>
+            <div className="flex items-center gap-3 font-mono text-[10px]">
+              <span className="flex items-center gap-1 text-[#FF3388] font-bold">
+                <span className="w-2 h-2 rounded-full bg-[#FF3388]" /> LeadFlow Context
+              </span>
+              <span className="flex items-center gap-1 text-[#7B9FD4] font-medium">
+                <span className="w-2 h-2 rounded-full bg-[#7B9FD4]" /> Rule-Based AI
+              </span>
+              <span className="flex items-center gap-1 text-[#5A6488] font-medium">
+                <span className="w-2 h-2 rounded-full bg-[#5A6488]" /> Generic Template
+              </span>
+            </div>
+          </div>
+
+          <div className="w-full h-auto overflow-hidden">
+            <svg
+              viewBox="0 0 600 230"
+              className="w-full h-auto select-none overflow-visible"
+              style={{ fontVariantNumeric: "tabular-nums" }}
+            >
+              {/* Horizontal Dashed Grid Lines & Y-Axis Labels */}
+              <text x="24" y="34" className="fill-slate-400 font-mono text-[11px]" textAnchor="end">80</text>
+              <line x1="36" y1="30" x2="580" y2="30" stroke="#CBD5E1" strokeDasharray="3 3" strokeWidth="1" />
+
+              <text x="24" y="74" className="fill-slate-400 font-mono text-[11px]" textAnchor="end">60</text>
+              <line x1="36" y1="70" x2="580" y2="70" stroke="#CBD5E1" strokeDasharray="3 3" strokeWidth="1" />
+
+              <text x="24" y="114" className="fill-slate-400 font-mono text-[11px]" textAnchor="end">40</text>
+              <line x1="36" y1="110" x2="580" y2="110" stroke="#CBD5E1" strokeDasharray="3 3" strokeWidth="1" />
+
+              <text x="24" y="154" className="fill-slate-400 font-mono text-[11px]" textAnchor="end">20</text>
+              <line x1="36" y1="150" x2="580" y2="150" stroke="#CBD5E1" strokeDasharray="3 3" strokeWidth="1" />
+
+              <text x="24" y="194" className="fill-slate-400 font-mono text-[11px]" textAnchor="end">0</text>
+              <line x1="36" y1="190" x2="580" y2="190" stroke="#CBD5E1" strokeDasharray="3 3" strokeWidth="1" />
+
+              {/* X-Axis Timestamps (Matching Reference 2) */}
+              <text x="45" y="215" className="fill-slate-400 font-mono text-[11px]">07:27</text>
+              <text x="200" y="215" className="fill-slate-400 font-mono text-[11px]">07:31</text>
+              <text x="355" y="215" className="fill-slate-400 font-mono text-[11px]">07:34</text>
+              <text x="500" y="215" className="fill-slate-400 font-mono text-[11px]">07:38</text>
+
+              {/* ── LINE 1: PINK / MAGENTA (LeadFlow Adaptive Context Hook - High Performer) ── */}
+              <polyline
+                fill="none"
+                stroke="#FF3388"
+                strokeWidth="2.5"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                points="
+                  36,84
+                  140,84
+                  155,94
+                  175,94
+                  190,84
+                  350,84
+                  368,48
+                  386,96
+                  425,96
+                  440,88
+                  455,88
+                  475,48
+                  575,48
+                "
+              />
+
+              {/* ── LINE 2: LIGHT CORNFLOWER BLUE (Rule-Based AI Copilot) ── */}
+              <polyline
+                fill="none"
+                stroke="#7B9FD4"
+                strokeWidth="2"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                points="
+                  36,114
+                  140,114
+                  155,142
+                  170,142
+                  180,156
+                  195,114
+                  350,114
+                  368,92
+                  384,142
+                  420,142
+                  435,162
+                  450,126
+                  462,126
+                  478,92
+                "
+              />
+
+              {/* ── LINE 3: DARK SLATE / PURPLE-GRAY (Generic Spam Cold Templates) ── */}
+              <polyline
+                fill="none"
+                stroke="#5A6488"
+                strokeWidth="2"
+                strokeLinejoin="round"
+                strokeLinecap="round"
+                points="
+                  36,142
+                  155,142
+                  170,174
+                  185,142
+                  230,142
+                  242,150
+                  255,150
+                  268,174
+                  325,174
+                  340,134
+                  375,134
+                  388,156
+                  420,156
+                  435,184
+                  450,140
+                "
+              />
+            </svg>
+          </div>
+        </div>
+
         {/* Dynamic Context Hook Box */}
-        <div className="mt-5 p-4 rounded-xl bg-white/5 border border-white/10 relative z-10">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-white/40 mb-1.5">
+        <div className="mt-4 p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-sm relative z-10">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1">
             DYNAMIC SUBJECT LINE
           </div>
-          <div className="font-sans font-semibold text-sm text-white">
+          <div className="font-sans font-semibold text-xs sm:text-sm text-[#0B1B3D]">
             Sarah, quick question regarding CloudScale’s KubeCon keynote on platform reliability
           </div>
         </div>
 
-        <div className="mt-3 p-4 rounded-xl bg-[#150A1F] border border-[#D93D94]/30 relative z-10">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-[#D93D94] font-semibold mb-2">
+        <div className="mt-2.5 p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-sm relative z-10">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-[#FF3388] font-bold mb-1.5">
             AI-SYNTHESIZED EXECUTIVE HOOK
           </div>
-          <p className="font-sans text-xs sm:text-sm text-white/90 leading-relaxed italic">
+          <p className="font-sans text-xs text-slate-700 leading-relaxed italic">
             &ldquo;Loved your talk at KubeCon on multi-region failover. Noticed your team recently opened 4 senior platform roles to support the recent Kubernetes migration—wanted to share how we helped Stripe automate pipeline validation during similar scale-ups...&rdquo;
           </p>
         </div>
 
         {/* A/B Conversion Benchmark */}
-        <div className="mt-5 pt-4 border-t border-white/10 space-y-2 relative z-10">
+        <div className="mt-4 pt-3.5 border-t border-slate-200/80 space-y-2 relative z-10">
           <div className="flex items-center justify-between font-mono text-xs">
-            <span className="text-[#D93D94] font-semibold">LEADFLOW CONTEXT HOOK</span>
-            <span className="text-[#10B981] font-bold">44.8% Reply Rate</span>
+            <span className="text-[#FF3388] font-bold">LEADFLOW CONTEXT HOOK</span>
+            <span className="text-[#10B981] font-bold">44.8% Reply Rate (14x Baseline)</span>
           </div>
-          <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-[#D93D94] to-[#10B981] w-[45%]" />
+          <div className="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+            <div className="h-full bg-gradient-to-r from-[#FF3388] to-[#10B981] w-[45%]" />
           </div>
 
           <div className="flex items-center justify-between font-mono text-xs pt-1">
-            <span className="text-white/40">GENERIC TEMPLATE</span>
-            <span className="text-white/40">3.2% Reply Rate</span>
+            <span className="text-slate-400">GENERIC TEMPLATE</span>
+            <span className="text-slate-400">3.2% Reply Rate</span>
           </div>
-          <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-            <div className="h-full bg-white/30 w-[8%]" />
+          <div className="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+            <div className="h-full bg-slate-400 w-[8%]" />
           </div>
         </div>
       </div>
@@ -453,42 +638,42 @@ export function Features() {
       className="relative z-20 mx-3 sm:mx-5 md:mx-8 lg:mx-10 xl:mx-14 max-w-[1680px] 2xl:mx-auto pt-20 md:pt-28 pb-16 sm:pb-20 md:pb-24 lg:pb-28 px-6 md:px-12 lg:px-16 bg-[#FFFFFF] text-[#0B1B3D] rounded-[32px] sm:rounded-[44px] md:rounded-[54px] lg:rounded-[64px] xl:rounded-[72px] shadow-[0_25px_70px_rgba(0,0,0,0.45)] mb-8 sm:mb-12 md:mb-16"
     >
       <div className="max-w-[var(--max-width)] mx-auto">
-        {/* ── SECTION HEADER (Matching Reference: Left Subtitle + Right Display Title) ── */}
-        <div className="mb-16 md:mb-24">
-          <div className="flex flex-col-reverse lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-14 xl:gap-20">
+        {/* ── SECTION HEADER (Aligned with the 12-Column Grid Below) ── */}
+        <div className="mb-14 sm:mb-16 md:mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-start">
             
-            {/* Left Column: Clean Supporting Description in Geist Sans (Matching Reference Left Side) */}
+            {/* Left Column: Clean Supporting Description in Geist Sans (Aligned with Left Navigation) */}
             <motion.div
               initial={reduce ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-              className="w-full lg:w-[42%] xl:w-[36%] shrink-0 lg:pt-2"
+              className="lg:col-span-6 xl:col-span-6 pt-1 lg:pt-2.5"
             >
               <p
-                style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
-                className="font-sans font-normal text-lg sm:text-xl lg:text-[1.25rem] leading-[1.38] text-[#0B1B3D] tracking-[-0.015em] max-w-md"
+                style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
+                className="font-sans font-normal text-base sm:text-lg lg:text-[1.18rem] xl:text-[1.25rem] leading-[1.4] text-[#0B1B3D] tracking-[-0.015em] max-w-lg"
               >
                 Four synchronized capabilities working as a continuous engine to research, personalize, deliver, and book qualified B2B meetings.
               </p>
             </motion.div>
 
-            {/* Right Column: Large 2-Line Display Headline with Pink Accent (Matching Reference Right Side) */}
+            {/* Right Column: Display Headline (100% Left-Aligned with Dashboards Below, Clean 2-Line Layout) */}
             <motion.div
               initial={reduce ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="w-full lg:w-[56%] xl:w-[60%]"
+              className="lg:col-span-6 xl:col-span-6"
             >
               <h2
-                style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
-                className="font-sans font-light sm:font-[350] text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.85rem] leading-[1.08] tracking-[-0.035em] text-[#0B1B3D]"
+                style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
+                className="font-sans font-light sm:font-[350] text-3xl sm:text-4xl md:text-5xl lg:text-[2.65rem] xl:text-[3.15rem] 2xl:text-[3.45rem] leading-[1.1] tracking-[-0.035em] text-[#0B1B3D]"
               >
-                <span className="block text-[#0B1B3D]">
+                <span className="block whitespace-normal sm:whitespace-nowrap text-[#0B1B3D]">
                   Engineered for high reply rates,
                 </span>
-                <span className="block text-[#FF3388] font-light sm:font-[350]">
+                <span className="block whitespace-normal sm:whitespace-nowrap text-[#FF3388] font-light sm:font-[350]">
                   not vanity volume.
                 </span>
               </h2>
@@ -582,7 +767,7 @@ export function Features() {
               <AnimatedCounter value={74} suffix="%" inView={metricsInView} />
             </div>
             <div
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="mt-2.5 sm:mt-3 text-xs sm:text-[13.5px] lg:text-[14px] text-[#64748B] font-normal sm:font-medium tracking-normal leading-snug"
             >
               Verified Lead Enrichment Rate
@@ -591,13 +776,13 @@ export function Features() {
 
           <div>
             <div
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="font-bold text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.6rem] text-[#FF3388] tracking-tight leading-none"
             >
               <AnimatedCounter value={3.8} decimals={1} suffix="x" inView={metricsInView} />
             </div>
             <div
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="mt-2.5 sm:mt-3 text-xs sm:text-[13.5px] lg:text-[14px] text-[#64748B] font-normal sm:font-medium tracking-normal leading-snug"
             >
               Higher Meeting Booking Rate
@@ -606,13 +791,13 @@ export function Features() {
 
           <div>
             <div
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="font-bold text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.6rem] text-[#0B1B3D] tracking-tight leading-none"
             >
               <AnimatedCounter prefix="< " value={3} suffix=" hrs" inView={metricsInView} />
             </div>
             <div
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="mt-2.5 sm:mt-3 text-xs sm:text-[13.5px] lg:text-[14px] text-[#64748B] font-normal sm:font-medium tracking-normal leading-snug"
             >
               Time to First Live Campaign
@@ -621,13 +806,13 @@ export function Features() {
 
           <div>
             <div
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="font-bold text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.6rem] text-[#0B1B3D] tracking-tight leading-none"
             >
               <AnimatedCounter value={24} suffix=" Days" inView={metricsInView} />
             </div>
             <div
-              style={{ fontFamily: "var(--font-geist-sans), sans-serif" }}
+              style={{ fontFamily: "var(--font-sans), 'Geist', sans-serif" }}
               className="mt-2.5 sm:mt-3 text-xs sm:text-[13.5px] lg:text-[14px] text-[#64748B] font-normal sm:font-medium tracking-normal leading-snug"
             >
               Shorter Average Sales Cycle

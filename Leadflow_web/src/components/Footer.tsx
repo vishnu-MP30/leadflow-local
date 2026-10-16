@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { InteractiveTextPaint } from "@/components/InteractiveTextPaint";
 import {
   LinkedinLogo,
   EnvelopeSimple,
@@ -12,17 +13,12 @@ export function Footer() {
   return (
     <footer className="relative z-10 bg-[#070709] text-white border-t border-white/10 overflow-hidden select-none">
       
-      {/* ── MASSIVE CENTER-ALIGNED "LEADFLOW" WORDMARK (EXACT REFERENCE 4) ── */}
-      <div className="w-full pt-16 sm:pt-20 md:pt-28 pb-8 sm:pb-12 border-b border-white/10 overflow-hidden">
-        <div className="max-w-[var(--max-width)] mx-auto px-6 text-center">
-          <div className="relative inline-block">
-            <h1 className="font-sans font-black text-[17vw] sm:text-[16vw] md:text-[15vw] tracking-tighter text-white leading-none uppercase text-center select-none hover:text-[#D93D94] transition-colors duration-500">
-              LeadFlow
-            </h1>
-            <span className="absolute top-2 -right-4 sm:-right-8 md:-right-12 font-mono text-sm sm:text-xl md:text-2xl text-[#D93D94] border border-[#D93D94]/40 rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center font-bold">
-              &reg;
-            </span>
-          </div>
+      {/* ── MASSIVE CENTER-ALIGNED "LEADFLOW" WORDMARK WITH INTERACTIVE PAINT REVEAL (HERON AI STYLE) ── */}
+      <div className="w-full pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 border-b border-white/10 overflow-hidden">
+        <div className="max-w-[var(--max-width)] mx-auto px-4 sm:px-6 text-center">
+          
+          {/* Interactive Paint Reveal on Hover (Heron AI Blueprint + Ink Bleed Effect) */}
+          <InteractiveTextPaint />
 
           {/* Sub-headline directly below wordmark (Exact Reference 4 "STUDIO + WORLDVIEW" style) */}
           <div className="mt-4 sm:mt-6 flex items-center justify-center gap-3 font-mono text-xs sm:text-sm md:text-base font-bold tracking-[0.25em] uppercase text-white/90">
@@ -138,8 +134,18 @@ export function Footer() {
         </div>
 
         {/* ── BOTTOM COPYRIGHT & ATTRIBUTION BAR ── */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-500">
+        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs text-slate-500">
           <p>&copy; {new Date().getFullYear()} LEADFLOW INC. ALL RIGHTS RESERVED.</p>
+
+          {/* ── POWERED BY AIRIZZ (CENTERED, MEDIUM SIZE, BRAND FONT & COLOR) ── */}
+          <div className="flex items-center gap-2.5 font-mono text-xs sm:text-sm tracking-[0.22em] uppercase font-bold text-slate-300">
+            <span className="w-2 h-2 rounded-full bg-[#D93D94] animate-pulse" />
+            <span className="text-slate-400 font-semibold text-xs sm:text-sm">POWERED BY</span>
+            <span className="text-[#D93D94] font-black text-sm sm:text-base tracking-[0.25em] drop-shadow-[0_0_15px_rgba(217,61,148,0.5)]">
+              AIRIZZ
+            </span>
+          </div>
+
           <div className="flex items-center gap-6">
             <span>SYSTEM v2.4</span>
             <span>&bull;</span>

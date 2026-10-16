@@ -121,7 +121,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
+                    className="block font-mono text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
                   >
                     Full Name
                   </label>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
+                    className="block font-mono text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
                   >
                     Work Email
                   </label>
@@ -163,7 +163,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="company"
-                    className="block text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
+                    className="block font-mono text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
                   >
                     Company Website
                   </label>
@@ -184,7 +184,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="leadVolume"
-                    className="block text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
+                    className="block font-mono text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
                   >
                     Monthly Lead Volume
                   </label>
@@ -218,7 +218,7 @@ export default function ContactPage() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
+                    className="block font-mono text-xs font-semibold text-[var(--foreground-muted)] uppercase tracking-wider mb-2"
                   >
                     What are your outreach goals?
                   </label>
@@ -238,7 +238,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full group inline-flex items-center justify-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-hover)] disabled:bg-[var(--accent)]/60 text-white font-medium text-sm px-6 py-3 rounded-lg transition-all active:scale-[0.98] glow-accent cursor-pointer"
+                  className="w-full group inline-flex items-center justify-center gap-2 bg-[#D93D94] hover:bg-[#C52C82] disabled:bg-[#D93D94]/60 text-white font-mono font-bold text-xs uppercase tracking-[0.14em] px-6 py-3.5 rounded-lg transition-all active:scale-[0.98] cursor-pointer shadow-[0_0_20px_rgba(217,61,148,0.4)] hover:shadow-[0_0_30px_rgba(217,61,148,0.65)]"
                   style={{
                     transitionTimingFunction: "var(--ease-out)",
                     transitionDuration: "var(--duration-fast)",
@@ -286,7 +286,7 @@ export default function ContactPage() {
 
       {/* Footer */}
       <footer className="relative z-10 max-w-[var(--max-width)] mx-auto px-6 w-full py-6 flex items-center justify-center border-t border-[var(--border-subtle)]">
-        <p className="text-[10px] text-[var(--foreground-dim)]">
+        <p className="font-mono text-xs text-[var(--foreground-dim)]">
           &copy; {new Date().getFullYear()} LeadFlow AI. All rights reserved.
         </p>
       </footer>

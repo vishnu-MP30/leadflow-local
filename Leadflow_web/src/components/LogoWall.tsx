@@ -18,7 +18,7 @@ const trustBrands = [
         >
           <path d="M12 2C7.5 2 4 6 4 11c0 4 2.5 7.5 6 8.7V22h4v-2.3c3.5-1.2 6-4.7 6-8.7 0-5-3.5-9-8-9zm0 3c2.8 0 5 2.5 5 6 0 2.2-1.1 4.2-2.8 5.2-.6-2.8-2.6-5-5.2-5.7.5-3 1.7-5.5 3-5.5z" />
         </svg>
-        <span className="font-serif font-bold text-lg sm:text-xl tracking-tight text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+        <span className="font-sans font-bold text-lg sm:text-xl tracking-tight text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
           Potager
         </span>
       </div>
@@ -123,9 +123,9 @@ export function LogoWall() {
   const infiniteBrands = [...trustBrands, ...trustBrands, ...trustBrands];
 
   return (
-    <section className="relative pt-14 pb-20 sm:pb-24 bg-[#0B0A0F] z-20 overflow-hidden select-none border-t border-white/10 rounded-t-[32px] sm:rounded-t-[44px] shadow-[0_-20px_50px_rgba(0,0,0,0.85)]">
+    <section className="relative pt-4 sm:pt-6 pb-16 sm:pb-20 bg-[#0B0A0F] z-20 overflow-hidden select-none">
       {/* ══════════════════════════════════════════════════════════
-          ANGLED PLUM/MAGENTA GEOMETRIC RIBBONS (REFERENCE 1 & 2 STYLE)
+          SEAMLESS ATMOSPHERIC FLOW (BLENDED DIRECTLY WITH HERO)
          ══════════════════════════════════════════════════════════ */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Deep Plum & Orchid Diagonal Ribbon Bands */}
@@ -175,19 +175,13 @@ export function LogoWall() {
 
         {/* Reference 2 Dot Lattice Matrix Pattern across the transition gap */}
         <div
-          className="absolute inset-0 opacity-25 pointer-events-none"
+          className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)",
             backgroundSize: "36px 36px",
           }}
         />
 
-        {/* Reference 2 Glowing Accent Node on Left Facet */}
-        <div className="absolute left-[10%] sm:left-[15%] bottom-28 sm:bottom-36 pointer-events-none z-10">
-          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#D93D94] shadow-[0_0_24px_rgba(217,61,148,0.9)] border border-white/40 flex items-center justify-center">
-            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-          </div>
-        </div>
 
         {/* Reference 2 Illuminated Seam Light Ray between Facets */}
         <div
@@ -201,13 +195,28 @@ export function LogoWall() {
           }}
         />
 
-        {/* Subtle Horizontal Top Border Highlight */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        {/* Soft Upward Blend Gradient (Dissolves any seam into Hero's dark canvas) */}
+        <div
+          className="absolute top-0 left-0 right-0 h-28 pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(to bottom, #07000d 0%, rgba(7, 0, 13, 0.7) 40%, transparent 100%)",
+          }}
+        />
+
+        {/* Atmospheric Upward Radial Bloom (Gently illuminates the transition from Hero to Marquee) */}
+        <div
+          className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[180px] pointer-events-none blur-3xl opacity-35 z-10"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(217, 61, 148, 0.5) 0%, rgba(142, 28, 107, 0.2) 45%, transparent 75%)",
+          }}
+        />
       </div>
 
       {/* ── TOP CONTEXT LABEL ── */}
-      <div className="text-center mb-7 relative z-10 px-4">
-        <span className="font-mono font-medium text-[11px] sm:text-xs tracking-[0.25em] uppercase text-white/70">
+      <div className="text-center mb-5 sm:mb-6 relative z-10 px-4">
+        <span className="font-mono font-medium text-[11px] sm:text-xs tracking-[0.25em] uppercase text-white/60">
           TRUSTED BY SALES TEAMS AT
         </span>
       </div>

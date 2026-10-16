@@ -60,7 +60,7 @@ export function Testimonials() {
           </motion.h2>
         </div>
 
-        {/* 3-column testimonial grid with dark obsidian cards */}
+        {/* 3-column testimonial grid with clean white Apple-style standout cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {testimonials.map((t, idx) => (
             <motion.div
@@ -69,34 +69,34 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-              className="p-8 rounded-3xl bg-[#0B0A0F]/70 backdrop-blur-xl border border-white/10 hover:border-[#D93D94]/40 hover:shadow-[0_15px_35px_-10px_rgba(217,61,148,0.25)] transition-all duration-300 flex flex-col justify-between group"
+              className="p-8 sm:p-9 rounded-[28px] sm:rounded-[32px] bg-[#FFFFFF] text-[#0B1B3D] border border-slate-200/90 shadow-[0_20px_50px_rgba(0,0,0,0.32)] hover:shadow-[0_28px_70px_rgba(0,0,0,0.45)] hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-[#1F102E] border border-[#D93D94]/30 flex items-center justify-center text-[#D93D94]">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200/80 flex items-center justify-center text-[#D93D94]">
                     <Quotes size={22} weight="fill" />
                   </div>
-                  <span className="font-mono font-medium text-xs tracking-wider uppercase text-[#D93D94] bg-[#1F102E]/80 border border-[#D93D94]/30 px-3 py-1 rounded-full">
+                  <span className="font-mono font-bold text-xs tracking-wider uppercase text-[#D93D94] bg-[#FDF2F8] border border-[#FBCFE8] px-3 py-1 rounded-full">
                     {t.stats}
                   </span>
                 </div>
 
-                <p className="font-sans font-normal text-base leading-relaxed text-slate-300 italic">
-                  "{t.quote}"
+                <p className="font-sans font-normal text-base sm:text-[1.02rem] leading-relaxed text-[#1E293B] italic">
+                  &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+              <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
                 <div>
-                  <div className="font-sans font-bold text-sm text-white group-hover:text-[#D93D94] transition-colors">
+                  <div className="font-sans font-bold text-base text-[#0B1B3D] group-hover:text-[#D93D94] transition-colors">
                     {t.name}
                   </div>
-                  <div className="font-sans font-normal text-xs text-slate-400 mt-0.5">{t.role}</div>
+                  <div className="font-sans font-normal text-xs text-[#64748B] mt-0.5">{t.role}</div>
                 </div>
 
                 <div className="flex items-center gap-1 text-[#D93D94]">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={13} weight="fill" />
+                    <Star key={i} size={14} weight="fill" />
                   ))}
                 </div>
               </div>

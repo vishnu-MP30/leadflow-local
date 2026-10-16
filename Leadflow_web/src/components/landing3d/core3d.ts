@@ -3,6 +3,7 @@ import * as THREE from 'three';
 export interface LandingCoreOptions {
   canvas: HTMLCanvasElement;
   container: HTMLElement;
+  scale?: number;
   onReady?: () => void;
 }
 
@@ -99,6 +100,7 @@ function createHorizonDots(count = 28, width = 20, y = -3.7): THREE.Points {
 export function initLandingCore({
   canvas,
   container,
+  scale = 0.68,
   onReady,
 }: LandingCoreOptions) {
   let isDisposed = false;
@@ -130,7 +132,16 @@ export function initLandingCore({
     if (isDisposed || !container) return;
     const width = container.clientWidth;
     const height = Math.max(container.clientHeight, 1);
-    camera.aspect = width / height;
+    const aspect = width / height;
+    camera.aspect = aspect;
+
+    // Responsive camera distance: when container is tall (aspect < 1.2), back up camera so 3D structure stays beautifully framed and never clipped
+    const baseZ = 10.6;
+    if (aspect < 1.2) {
+      camera.position.set(0, 0, baseZ * (1.18 / Math.max(aspect, 0.42)));
+    } else {
+      camera.position.set(0, 0, baseZ);
+    }
     camera.updateProjectionMatrix();
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -159,10 +170,9 @@ export function initLandingCore({
   highlightSpot.position.set(1.4, -0.15, 1.3);
   scene.add(highlightSpot);
 
-  // 5. MASTER GROUP (CENTERED MEDIUM-SIZE 3D STRUCTURE)
+  // 5. MASTER GROUP (CENTERED 3D STRUCTURE)
   const masterGroup = new THREE.Group();
-  // Scaled to a clean medium size (approx 32% smaller than previous wide size)
-  masterGroup.scale.set(0.68, 0.68, 0.68);
+  masterGroup.scale.set(scale, scale, scale);
   masterGroup.position.set(0, 0, 0);
   scene.add(masterGroup);
 

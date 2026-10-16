@@ -2,7 +2,12 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-export function LandingCore3D() {
+interface LandingCore3DProps {
+  className?: string;
+  scale?: number;
+}
+
+export function LandingCore3D({ className = "", scale = 0.68 }: LandingCore3DProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -27,6 +32,7 @@ export function LandingCore3D() {
         cleanup = initLandingCore({
           canvas,
           container,
+          scale,
           onReady: () => {
             setIsLoaded(true);
           },
@@ -48,19 +54,19 @@ export function LandingCore3D() {
       cancelled = true;
       cleanup?.();
     };
-  }, []);
+  }, [scale]);
 
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center select-none"
+      className={`absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center select-none ${className}`}
     >
       {/* ── ATMOSPHERIC DARK AUBERGINE / PLUM BACKDROP (MATCHING REFERENCE EXACTLY) ── */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 90% 75% at 50% 36%, #220829 0%, #18051E 40%, #110315 72%, #0B0A0F 100%)",
+            "radial-gradient(ellipse 95% 80% at 50% 50%, #220829 0%, #18051E 42%, #110315 74%, #0B0A0F 100%)",
         }}
       />
 

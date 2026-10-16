@@ -3,57 +3,96 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { List, X, ArrowRight, Sparkle } from "@phosphor-icons/react/dist/ssr";
+import { List, X, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 const navLinks = [
-  { label: "Product", href: "#" },
   { label: "Features", href: "/#features" },
-  { label: "Security", href: "/#security" },
-  { label: "Workflow", href: "/#workflow" },
+  { label: "How It Works", href: "/#how-it-works" },
   { label: "Pricing", href: "/#pricing" },
 ];
 
 export function Navbar() {
+  const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Scrolled style threshold for backdrop blur and borders
+      setScrolled(currentScrollY > 20);
+
+      // Always show navbar at the very top of the page
+      if (currentScrollY < 40) {
+        setVisible(true);
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      const diff = currentScrollY - lastScrollY;
+      // Filter out tiny scrolls to prevent jitter
+      if (Math.abs(diff) < 6) return;
+
+      if (diff > 0) {
+        // Scrolling DOWN -> HIDE navbar
+        setVisible(false);
+        setMobileOpen(false); // Close mobile drawer when user scrolls down
+      } else {
+        // Scrolling UP -> SHOW / POPUP navbar
+        setVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 px-4 sm:px-6 flex justify-center pointer-events-none">
+    <header
+      className={cn(
+        "fixed top-3 sm:top-5 left-0 right-0 z-50 px-4 sm:px-6 flex justify-center pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]",
+        visible
+          ? "translate-y-0 opacity-100"
+          : "-translate-y-28 opacity-0 pointer-events-none"
+      )}
+    >
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         className={cn(
-          "w-full max-w-[1240px] rounded-full px-5 sm:px-7 py-3 border flex items-center justify-between pointer-events-auto transition-all duration-300",
+          "relative w-full max-w-[1240px] rounded-full px-5 sm:px-7 py-2.5 sm:py-3 border flex items-center justify-between pointer-events-auto transition-all duration-300",
           scrolled
-            ? "bg-[#0B0A0F]/85 backdrop-blur-xl border-[#D93D94]/25 shadow-[0_10px_35px_-10px_rgba(0,0,0,0.8),0_0_20px_rgba(217,61,148,0.15)]"
-            : "bg-[#0B0A0F]/60 backdrop-blur-md border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
+            ? "bg-[#200627]/90 backdrop-blur-xl border-[#D93D94]/30 shadow-[0_12px_40px_-10px_rgba(25,3,32,0.9),0_0_24px_rgba(217,61,148,0.22)]"
+            : "bg-[#25082E]/80 backdrop-blur-md border-[#D93D94]/20 shadow-[0_8px_32px_rgba(25,3,32,0.6)]"
         )}
       >
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group outline-none shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#1F102E] to-[#D93D94]/30 border border-[#D93D94]/40 flex items-center justify-center shadow-[0_0_12px_rgba(217,61,148,0.35)] group-hover:scale-105 transition-transform">
-            <span className="text-[#D93D94] font-black text-sm tracking-tighter">LF</span>
-          </div>
-          <span className="text-white font-bold text-base tracking-tight">
-            LeadFlow<span className="text-[#D93D94]">.ai</span>
-          </span>
+        {/* Actual Leadflow Logo */}
+        <Link href="/" className="flex items-center group outline-none shrink-0 py-0.5 z-10">
+          <Image
+            src="/logo.png"
+            alt="LeadFlow"
+            width={140}
+            height={36}
+            priority
+            className="h-7 sm:h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.03]"
+          />
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-7 lg:gap-8">
+        {/* Desktop Links (Features, How It Works, Pricing centered) */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-10 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-[13.5px] font-medium text-white/75 hover:text-white transition-colors outline-none relative py-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)]"
+              className="text-[13.5px] font-medium text-white/80 hover:text-white transition-colors outline-none relative py-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] whitespace-nowrap"
             >
               {link.label}
             </Link>
@@ -61,10 +100,10 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 z-10">
           <Link
             href="/contact"
-            className="text-[13.5px] font-medium text-white/70 hover:text-white transition-colors outline-none px-2"
+            className="text-[13.5px] font-medium text-white/75 hover:text-white transition-colors outline-none px-2"
           >
             Sign In
           </Link>
@@ -96,7 +135,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.23, 1, 0.32, 1] }}
-            className="absolute top-20 left-4 right-4 bg-[#0B0A0F]/95 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col gap-4 pointer-events-auto md:hidden"
+            className="absolute top-20 left-4 right-4 bg-[#200627]/95 backdrop-blur-2xl border border-[#D93D94]/25 rounded-2xl p-6 shadow-2xl flex flex-col gap-4 pointer-events-auto md:hidden"
           >
             <div className="flex flex-col gap-3">
               {navLinks.map((link) => (

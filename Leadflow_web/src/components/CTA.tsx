@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, CheckCircle, ShieldCheck } from "@phosphor-icons/react/dist/ssr";
 
-// ── 3 CYCLING COLOR STATES (WHITE, YELLOW, RED AS REQUESTED) ──
+// ── 4 CYCLING COLOR STATES (WHITE -> PURPLE/PLUM -> YELLOW -> BRAND ORCHID/MAGENTA) ──
 const typePhrases = [
   {
     text: "Stop writing cold emails by hand.",
@@ -16,6 +16,17 @@ const typePhrases = [
     btnPrimary: "bg-[#0B1B3D] hover:bg-[#16274E] text-white shadow-xl",
     btnSecondary: "bg-black/5 hover:bg-black/10 text-[#0B1B3D] border-[#0B1B3D]/20",
     tagColor: "text-slate-500",
+  },
+  {
+    text: "Turn cold prospects into pipeline.",
+    bgColor: "#26082A",
+    textColor: "#FFFFFF",
+    descColor: "text-pink-100/80",
+    badgeBg: "bg-white/10 border-white/20 text-white",
+    badgeDot: "bg-[#D93D94]",
+    btnPrimary: "bg-[#D93D94] hover:bg-[#C52C82] text-white shadow-xl shadow-[#D93D94]/30",
+    btnSecondary: "bg-white/10 hover:bg-white/20 text-white border-white/25",
+    tagColor: "text-pink-200/70",
   },
   {
     text: "Start closing pipeline.",
@@ -30,14 +41,14 @@ const typePhrases = [
   },
   {
     text: "Book high-intent meetings.",
-    bgColor: "#E11D48",
+    bgColor: "#D93D94",
     textColor: "#FFFFFF",
-    descColor: "text-rose-100",
+    descColor: "text-pink-100",
     badgeBg: "bg-white/15 border-white/25 text-white",
     badgeDot: "bg-white",
-    btnPrimary: "bg-white hover:bg-rose-50 text-[#0B1B3D] shadow-xl",
+    btnPrimary: "bg-white hover:bg-pink-50 text-[#0B1B3D] shadow-xl",
     btnSecondary: "bg-white/10 hover:bg-white/20 text-white border-white/30",
-    tagColor: "text-rose-200",
+    tagColor: "text-pink-200",
   },
 ];
 

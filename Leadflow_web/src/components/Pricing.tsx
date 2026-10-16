@@ -8,7 +8,7 @@ const plans = [
   {
     name: "Starter",
     tag: "ENTRY TIER",
-    price: "$0",
+    price: "$19",
     period: "/MONTH",
     description: "For individual reps testing outbound workflows",
     features: [
@@ -24,7 +24,7 @@ const plans = [
   {
     name: "Growth",
     tag: "REVENUE ENGINE",
-    price: "$49",
+    price: "$79",
     period: "/MONTH",
     description: "For revenue teams scaling outbound conversations",
     features: [
