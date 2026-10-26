@@ -186,6 +186,7 @@ export function Hero() {
   return (
     <section
       ref={heroRef}
+      id="hero"
       className="hero relative min-h-[100svh] w-full overflow-hidden text-white flex flex-col justify-end"
     >
       {/* ── 3D CANVAS LAYER ── */}

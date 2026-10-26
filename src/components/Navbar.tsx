@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,12 +9,13 @@ import { cn } from "@/lib/utils";
 import { List, X, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 const navLinks = [
-  { label: "Features", href: "/#features" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Features", href: "/#features", targetId: "features" },
+  { label: "How It Works", href: "/#how-it-works", targetId: "how-it-works" },
+  { label: "Pricing", href: "/#pricing", targetId: "pricing" },
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -54,6 +56,49 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If user is already on homepage, smoothly scroll to the top hero section
+    if (pathname === "/" || pathname === "" || pathname === null) {
+      e.preventDefault();
+      setVisible(true);
+
+      // Smooth scroll the window to the very top (0, 0)
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+
+      // Also ensure the hero section element scrolls into view
+      const heroEl = document.getElementById("hero");
+      if (heroEl) {
+        heroEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      // Clear any URL hash without page reload
+      if (window.location.hash) {
+        window.history.pushState(null, "", "/");
+      }
+    }
+    setMobileOpen(false);
+  };
+
+  const handleNavLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    targetId: string
+  ) => {
+    if (pathname === "/" || pathname === "" || pathname === null) {
+      e.preventDefault();
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", href);
+      }
+    }
+    setMobileOpen(false);
+  };
+
   return (
     <header
       className={cn(
@@ -75,7 +120,12 @@ export function Navbar() {
         )}
       >
         {/* Actual Leadflow Logo */}
-        <Link href="/" className="flex items-center group outline-none shrink-0 py-0.5 z-10">
+        <Link
+          href="/"
+          onClick={handleLogoClick}
+          className="flex items-center group outline-none shrink-0 py-0.5 z-10 cursor-pointer"
+          aria-label="LeadFlow Home - Scroll to top"
+        >
           <Image
             src="/logo.png"
             alt="LeadFlow"
@@ -92,7 +142,8 @@ export function Navbar() {
             <Link
               key={link.label}
               href={link.href}
-              className="text-[13.5px] font-medium text-white/80 hover:text-white transition-colors outline-none relative py-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] whitespace-nowrap"
+              onClick={(e) => handleNavLinkClick(e, link.href, link.targetId)}
+              className="text-[13.5px] font-medium text-white/80 hover:text-white transition-colors outline-none relative py-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] whitespace-nowrap cursor-pointer"
             >
               {link.label}
             </Link>
@@ -142,8 +193,8 @@ export function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-base font-medium text-white/80 hover:text-[#D93D94] py-2 border-b border-white/5 transition-colors"
+                  onClick={(e) => handleNavLinkClick(e, link.href, link.targetId)}
+                  className="text-base font-medium text-white/80 hover:text-[#D93D94] py-2 border-b border-white/5 transition-colors cursor-pointer"
                 >
                   {link.label}
                 </Link>

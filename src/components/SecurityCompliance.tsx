@@ -45,7 +45,7 @@ export function SecurityCompliance() {
 
   return (
     <section
-      id="workflow"
+      id="security"
       className="relative z-10 py-28 sm:py-36 lg:py-44 bg-transparent text-white overflow-hidden select-none"
     >
       {/* ── 3D SLICED ORBITAL BUBBLE CORE ANIMATION (CENTER BACKGROUND) ── */}
